@@ -38,16 +38,11 @@ def page_summary_body():
         compromised product they supply to the market"""
     )
 
-    st.write(
-        """Additionally, a similar manual process is in place for detecting pests 
-        in other crops, and if this initiative is successful, there will be an 
-        opportunity to implement this project for other crops."""
-    )
 
     st.write("### Dataset")
 
     st.write(
-        """The dataset used in this project contains over 4,000 images taken from 
+        """The dataset used in this project contains around 4,000 images taken from 
         the client's crop fields. The images show healthy cherry leaves and cherry 
         leaves that have powdery mildew."""
     )
@@ -60,7 +55,7 @@ def page_summary_body():
 
     st.write("---")
     st.write(
-        """*For more project information, see the 
+        """*project information 
         [project README]
         () 
         on GitHub.*"""
