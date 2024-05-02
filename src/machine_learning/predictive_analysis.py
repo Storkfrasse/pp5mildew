@@ -21,7 +21,7 @@ def load_model_and_predict(my_image, version):
     Load and perform ML prediction over live images
     """
 
-    model = load_model(f"outputs/{version}/leaf_health_clf_model.h5")
+    model = load_model(f"outputs/{version}/leaf_health_model.h5")
 
     class_names = load_pkl_file(file_path=f"outputs/{version}/class_names.pkl")
 
