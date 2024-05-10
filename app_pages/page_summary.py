@@ -52,11 +52,3 @@ def page_summary_body():
         [cherry leaves dataset]
         (https://www.kaggle.com/datasets/codeinstitute/cherry-leaves)."""
     )
-
-    st.write("---")
-    st.write(
-        """*project information 
-        [project README]
-        () 
-        on GitHub.*"""
-    )

@@ -1,117 +1,225 @@
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Cherry Leaf Mildew
 
-## Template Instructions
+This app provides insight into the health of cherry trees by assessing whether their leaves contain powdery mildew or not.
 
-Welcome,
+Objectives:
 
-This is the Code Institute student template for the Cherry Leaves project option in Predictive Analytics. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
+Conduct a visual analysis of healthy and powdery mildew-infected cherry leaves to discern differences.
+Predict the presence of powdery mildew in cherry leaves from real-time images.
+The outcomes of this project are accessible on a dashboard - the live link is here.
 
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
+Dataset Overview:
 
-## How to use this repo
+The dataset originates from Kaggle. A hypothetical user story was then constructed to apply predictive analytics to a practical scenario.
 
-1. Use this template to create your GitHub project repo
+This dataset comprises over 4,000 images captured from the client's cherry orchards. These images depict both healthy cherry leaves and leaves affected by powdery mildew, a fungal ailment that afflicts numerous plant species. Given that cherry cultivation is a flagship venture for the company, they are keen on ensuring the market receives products of uncompromised quality.
 
-1. Log into your cloud IDE with your GitHub account.
+Business Requirements:
+.
 
-1. On your Dashboard, click on the New Workspace button
+* 1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
+* 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
 
-1. Paste in the URL you copied from GitHub earlier
+## Hypotheses
 
-1. Click Create
+**Hypothesis: Cherry leaves with and without powdery mildew.**
 
-1. Wait for the workspace to open. This can take a few minutes.
+* The presence of visual differences can be investigated through visual inspection of sample image montages and average and variability image studies.
+* The hypothesis will be validated if the neural network model is able to make predictions of leaf health to a level of 97% accuracy.
 
-1. Open a new terminal and `pip3 install -r requirements.txt`
+**Hypothesis: Images of leaves with powdery mildew will have greater color variability.**
 
-1. Open the jupyter_notebooks directory, and click on the notebook you want to open.
+* Since healthy leaves tend to have a fairly uniform green color, while leaves with powdery mildew additionally present with white coloration, it is hypothesized that analysis of the variability of pixels in the images will reveal that the latter has higher variability, both between different images of the same class and within individual images.
+* This can be validated through variability image studies between and within images, comparing the two classes.
 
-1. Click the kernel button and choose Python Environments.
 
-Note that the kernel says Python 3.8.18 as it inherits from the workspace, so it will be Python-3.8.18 as installed by our template. To confirm this, you can use `! python --version` in a notebook code cell.
+## Data Visualizations and ML tasks
 
-## Cloud IDE Reminders
+Business requirement 1: **Data Visualization**
 
-To log into the Heroku toolbelt CLI:
+* Display image montages for healthy and powdery mildew cherry leaves
+* Display images showing the average and standard deviation of each image class
+* Display an image showing the difference between the two average images
+* Display plots showing variability within the images of each class
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In the terminal, run `heroku_config`
-5. Paste in your API key when asked
+Business requirement 2: **Classifiication**
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, then you can create a new one with _Regenerate API Key_.
-
-## Dataset Content
-
-- The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves). We then created a fictitious user story where predictive analytics can be applied in a real project in the workplace.
-- The dataset contains +4 thousand images taken from the client's crop fields. The images show healthy cherry leaves and cherry leaves that have powdery mildew, a fungal disease that affects many plant species. The cherry plantation crop is one of the finest products in their portfolio, and the company is concerned about supplying the market with a compromised quality product.
-
-## Business Requirements
-
-The cherry plantation crop from Farmy & Foods is facing a challenge where their cherry plantations have been presenting powdery mildew. Currently, the process is manual verification if a given cherry tree contains powdery mildew. An employee spends around 30 minutes in each tree, taking a few samples of tree leaves and verifying visually if the leaf tree is healthy or has powdery mildew. If there is powdery mildew, the employee applies a specific compound to kill the fungus. The time spent applying this compound is 1 minute. The company has thousands of cherry trees located on multiple farms across the country. As a result, this manual process is not scalable due to the time spent in the manual process inspection.
-
-To save time in this process, the IT team suggested an ML system that detects instantly, using a leaf tree image, if it is healthy or has powdery mildew. A similar manual process is in place for other crops for detecting pests, and if this initiative is successful, there is a realistic chance to replicate this project for all other crops. The dataset is a collection of cherry leaf images provided by Farmy & Foods, taken from their crops.
-
-- 1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
-- 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
-
-## Hypothesis and how to validate?
-
-- List here your project hypothesis(es) and how you envision validating it (them).
-
-## The rationale to map the business requirements to the Data Visualisations and ML tasks
-
-- List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
+* Give the client the ability to upload a leaf image and generate a prediction of whether it has powdery mildew or not
+* Provide a report of the images and predictions that can be downloaded
 
 ## ML Business Case
 
-- In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
+### Powdery mildew classification
 
-## Dashboard Design
+* The client is interested in an ML model that can predict if a cherry leaf is healthy or contains powdery mildew
+* The client has request a dashboard where cherry leaf images can be uploaded and that will display the classification prediction and the associated probability
+* The success metric agreed upon as the criterium for project success is 97% accuracy overall
 
-- List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items, that your dashboard library supports.
-- Finally, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project, you were confident you would use a given plot to display an insight, but later, you chose another plot type).
+## Applikation Design (Streamlit)
+
+### Introduction
+
+![Introduction page](/Readmeimg/introduction.jpg)
+
+
+
+### Leaf Health Predictor
+
+This page relates to business requirement 2 - *The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.*
+
+* Link to download a set of sample images for prediction testing
+
+![Leaf health prediction page](/Readmeimg/healthy.jpg)
+
+### ML Performance Metrics
+
+* Label distributions for train, validation and test sets
+* Model training history comparing train and validation sets
+* Model evaluation result
+   
+![ML performance metrics page](/Readmeimg/MLpreform.jpg)
+
+### Project Hypotheses
+
+![Project hypotheses page](/Readmeimg/hypo.jpg)
+
+### Images Study
+
+This page relates to business requirement 1 - *The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.*
+
+* Outline of image studies
+
+![Images study page](/Readmeimg/study.jpg)
+
+Checkboxes for each study -
+* Image montage
+
+* Average and variability images
+
+* Difference between average healthy and powdery mildew-containing images
+
+* Variability within images
+
+### Project Summary
+
+* General project information
+* Business case and requirements
+* Project dataset information
+
+![Project summary page](/Readmeimg/summary.jpg)
+
+## Project Limitations
+
+### Non-cherry-leaf images
+
+The model was trained using only images of healthy and powdery mildew-containing cherry leaves. Therefore, passing any other type of image will lead the model to output a "prediction" of one of these classes, even though this would have no relevance for the image.
+
+### Image dataset quality
+
+It was noted during the images study that there may be some qualitative differences between the images of each class in the provided dataset. The differences observed include:
+
+* Powdery mildew leaves seem to point upward more often, while healthy leaves point up or down
+* Potential differences in background or image quality.
+
+
+## Testing
+
+User testing was carried out on the deployed dashboard.
+
+### Dashboard user testing 
+
+#### Page 1: Introduction
+
+| Expectation                       | Met |
+| --------------------------------- | --- |
+| Page displays expected content | yes | 
+
+
+#### Page 2: Images Study
+
+| Expectation                       | Met |
+| --------------------------------- | --- |
+| Page displays expected content | yes |
+| Mage montage can be generated for each label | yes |
+| All plots and tables outlined in Dashboard Design section load and display | yes |
+
+#### Page 3: Leaf Health Predictor
+
+| Expectation                       | Met |
+| --------------------------------- | --- |
+| Page displays expected content | yes |
+| Sample images link opens Kaggle cherry leaves dataset | yes |
+| One or multiple files can be uploaded | yes |
+| Only .jpg files can be uploaded | yes |
+| After uploading, the images are displayed along with their class predictions | yes |
+| A table summarizing the data is displayed | yes |
+
+#### Page 4: ML Performance Metrics
+
+| Expectation                       | Met |
+| --------------------------------- | --- |
+| Page displays expected content | yes |
+| All plots and tables outlined in Dashboard Design section load and display | yes |
+
+#### Page 5: Project Hypothesis and Validation
+
+| Expectation                       | Met |
+| --------------------------------- | --- |
+| Page displays expected content | yes |
+
+#### Page 6: Project Summary
+
+| Expectation                       | Met |
+| --------------------------------- | --- |
+| Page displays expected content| yes |
+| Dataset link opens Kaggle cherry leaves dataset | yes |
 
 ## Unfixed Bugs
 
-- You will need to mention unfixed bugs and why they were unfixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable for consideration, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
+No unfixed bugs were found during testing.
 
 ## Deployment
 
 ### Heroku
 
-- The App live link is: `https://YOUR_APP_NAME.herokuapp.com/`
-- Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-- The project was deployed to Heroku using the following steps.
+* The app live link is here: [Cherry Leaf Health Dashboard](https://cherry-leaf-health-2ff1edcf83ab.herokuapp.com/)
+* Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
+* The project was deployed to Heroku using the following steps.
 
 1. Log in to Heroku and create an App
 2. At the Deploy tab, select GitHub as the deployment method.
 3. Select your repository name and click Search. Once it is found, click Connect.
 4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
-6. If the slug size is too large, then add large files not required for the app to the .slugignore file.
+5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
+6. If the slug size is too large then add large files not required for the app to the .slugignore file. 
 
-## Main Data Analysis and Machine Learning Libraries
 
-- Here, you should list the libraries used in the project and provide an example(s) of how you used these libraries.
+## Technologies Used
+
+* [Numpy](https://numpy.org/)
+* [Pandas](https://pandas.pydata.org/)
+* [Matplotlib](https://matplotlib.org/)
+* [Seaborn](https://seaborn.pydata.org/)
+* [TensorFlow](https://www.tensorflow.org/)
+----
+* [Python](https://www.python.org/)
+* [Jupyter Notebooks](https://jupyter.org/)
+* [Streamlit](https://docs.streamlit.io/)
 
 ## Credits
 
-- In this section, you need to reference where you got your content, media and from where you got extra help. It is common practice to use code from other repositories and tutorials. However, it is necessary to be very specific about these sources to avoid plagiarism.
-- You can break the credits section up into Content and Media, depending on what you have included in your project.
-
 ### Content
 
-- The text for the Home page was taken from Wikipedia Article A.
-- Instructions on how to implement form validation on the Sign-Up page were taken from [Specific YouTube Tutorial](https://www.youtube.com/).
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/).
+The fictional business case story was created by Code Institute.
+
+The dataset used in the project comes from [Kaggle](https://www.kaggle.com/datasets/codeinstitute/cherry-leaves).
 
 ### Media
 
-- The photos used on the home and sign-up page are from This Open-Source site.
-- The images used for the gallery page were taken from this other open-source site.
+The sample images on the applikation were pulled from the Kaggle database.
 
-## Acknowledgements (optional)
+### Acknowledgements
 
-- Thank the people who provided support throughout this project.
+The site was completed as a Portfolio 4 Project piece for the Full Stack Software Developer program at the Code Institute. This time I didn't get a mentor for this project. The one I was given in the beginning I had some trouble with in PP1, and CI never got back to me with a new mentor in time. For this project, I've taken some help from ChatGPT and the walkthrough Malaria project.
+
+Michael Sjö 2023.
