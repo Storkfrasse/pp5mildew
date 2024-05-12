@@ -184,7 +184,7 @@ No unfixed bugs were found during testing.
 
 ### Heroku
 
-* The app live link is here: [Cherry Leaf Health Dashboard](https://cherry-leaf-health-2ff1edcf83ab.herokuapp.com/)
+* The app live link is here: [Cherry Leaf Health Dashboard](https://pp5mildew-e3fe6b06a0ce.herokuapp.com/)
 * Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
 * The project was deployed to Heroku using the following steps.
 
